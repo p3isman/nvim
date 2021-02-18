@@ -12,17 +12,22 @@ call plug#begin("~/.vim/plugged")
     Plug 'tpope/vim-fugitive'
     Plug 'scrooloose/nerdcommenter'
     Plug 'leafgarland/typescript-vim'
-    Plug 'justinmk/vim-sneak'
+    Plug 'easymotion/vim-easymotion'
     Plug 'posva/vim-vue'
     Plug 'morhetz/gruvbox'
     Plug 'mxw/vim-jsx'
     Plug 'dart-lang/dart-vim-plugin'
     Plug 'natebosch/vim-lsc'
     Plug 'natebosch/vim-lsc-dart'
+    Plug 'alvan/vim-closetag'
+    Plug 'epilande/vim-react-snippets'
+    Plug 'SirVer/ultisnips'
 call plug#end()
 
 "Config Section
 let mapleader = " " " Set map leader to Space
+set mouse=a " Allow mouse to interact with text
+set clipboard=unnamed
 set nu
 set rnu
 set nowrap
@@ -30,6 +35,7 @@ set nohlsearch
 set expandtab
 set shiftwidth=2
 set tabstop=2
+set noshowmode
 if (has("termguicolors"))
 set termguicolors
 endif
@@ -112,3 +118,47 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+
+" Easy motion
+nmap <Leader>s <Plug>(easymotion-s2)
+
+" Save and quit
+nmap <Leader>w :w<CR>
+nmap <Leader>q :q<CR>
+
+" Autoclose tags
+" filenames like *.xml, *.html, *.xhtml, ...
+" These are the file extensions where this plugin is enabled.
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.jsx,*.js,*.ts,*.tsx'
+
+" filenames like *.xml, *.xhtml, ...
+" This will make the list of non-closing tags self-closing in the specified files.
+let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.js,*.ts,*.tsx'
+
+" filetypes like xml, html, xhtml, ...
+" These are the file types where this plugin is enabled.
+let g:closetag_filetypes = 'html,xhtml,phtml,jsx,js,ts,tsx'
+
+" filetypes like xml, xhtml, ...
+" This will make the list of non-closing tags self-closing in the specified files.
+let g:closetag_xhtml_filetypes = 'xhtml,jsx,js,ts,tsx'
+
+" integer value [0|1]
+" This will make the list of non-closing tags case-sensitive (e.g. `<Link>` will be closed while `<link>` won't.)
+let g:closetag_emptyTags_caseSensitive = 1
+
+" dict
+" Disables auto-close if not in a "valid" region (based on filetype)
+let g:closetag_regions = {
+    \ 'typescript.tsx': 'jsxRegion,tsxRegion',
+    \ 'javascript.jsx': 'jsxRegion',
+    \ }
+
+" Shortcut for closing tags, default is '>'
+let g:closetag_shortcut = '>'
+
+" Add > at current position without closing the current tag, default is ''
+let g:closetag_close_shortcut = '<leader>>'
+
+" Trigger ultisnips
+let g:UltiSnipsExpandTrigger="<C-l>"
