@@ -1,17 +1,14 @@
+" Load Plugins 
+" For VSCode extension
 if exists('g:vscode')
   call plug#begin("~/.vim/plugged")
-      Plug 'tpope/vim-surround'
-      Plug 'scrooloose/nerdcommenter'
-      Plug 'easymotion/vim-easymotion'
-      Plug 'justinmk/vim-sneak'
+    Plug 'tpope/vim-surround'
+    Plug 'scrooloose/nerdcommenter'
+    Plug 'easymotion/vim-easymotion'
+    Plug 'justinmk/vim-sneak'
   call plug#end()
 
-  "Config Section
-  let mapleader = " " " Set map leader to Space
-
-  " Easy motion
-  nmap <Leader>s <Plug>(easymotion-s2)
-
+" For terminal Neovim
 else
   call plug#begin("~/.vim/plugged")
       Plug 'scrooloose/nerdtree'
@@ -24,19 +21,15 @@ else
       Plug 'vim-airline/vim-airline'
       Plug 'vim-airline/vim-airline-themes'
       Plug 'tpope/vim-fugitive'
-      Plug 'scrooloose/nerdcommenter'
       Plug 'leafgarland/typescript-vim'
-      Plug 'easymotion/vim-easymotion'
-      Plug 'jonathanfilip/vim-lucius'
+      Plug 'alvan/vim-closetag'
+      Plug 'dracula/vim'
 
       " FLUTTER
       Plug 'natebosch/vim-lsc'
       Plug 'natebosch/vim-lsc-dart'
       Plug 'dart-lang/dart-vim-plugin'
       Plug 'thosakwe/vim-flutter'
-
-      Plug 'alvan/vim-closetag'
-      Plug 'mhinz/vim-startify'
   call plug#end()
 
   "Config Section
@@ -56,7 +49,7 @@ else
   endif
   syntax enable
 
-  colorscheme lucius
+  colorscheme dracula
   hi Normal guibg=NONE ctermbg=NONE
 
   " Default vim-lsc mappings
@@ -174,6 +167,4 @@ else
 
   " Run Flutter Project
   nnoremap <leader>fr :FlutterRun<CR>
-      " ordinary neovim
 endif
-
