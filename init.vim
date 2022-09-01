@@ -23,7 +23,8 @@ else
       Plug 'tpope/vim-fugitive'
       Plug 'leafgarland/typescript-vim'
       Plug 'alvan/vim-closetag'
-      Plug 'dracula/vim'
+      Plug 'kajamite/vim-monokai2'
+      Plug 'caiocutrim/black-coffee-molokai'
 
       " FLUTTER
       Plug 'natebosch/vim-lsc'
@@ -49,7 +50,7 @@ else
   endif
   syntax enable
 
-  colorscheme dracula
+  colorscheme black-coffee-molokai
   hi Normal guibg=NONE ctermbg=NONE
 
   " Default vim-lsc mappings
